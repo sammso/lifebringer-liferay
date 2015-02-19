@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="org.liferay.lifebringer.model.GameScore">
+		<field name="gameId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="gameTime" type="int" />
+		<field name="gameScore" type="int" />
+		<field name="redZombiesKilled" type="int" />
+		<field name="greenZombiesKilled" type="int" />
+		<field name="missed" type="int" />
+		<field name="fired" type="int" />
+		<field name="level" type="int" />
+	</model>
+</model-hints>

@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<!DOCTYPE display PUBLIC "-//Liferay//DTD Display 6.2.0//EN" "http://www.liferay.com/dtd/liferay-display_6_2_0.dtd">
+
+<display>
+	<category name="category.liferbringer">
+		<portlet id="lifebringer-portlet" />
+		<portlet id="top-players-portlet"/>
+		<portlet id="most-played-portlet"/>
+		<portlet id="most-accurate-shooters-portlet"></portlet>
+	</category>
+</display>
