@@ -48,6 +48,8 @@ public class GameScoreLocalServiceClp implements GameScoreLocalService {
     private String[] _methodParameterTypes19;
     private String _methodName20;
     private String[] _methodParameterTypes20;
+    private String _methodName21;
+    private String[] _methodParameterTypes21;
 
     public GameScoreLocalServiceClp(InvokableLocalService invokableLocalService) {
         _invokableLocalService = invokableLocalService;
@@ -148,9 +150,15 @@ public class GameScoreLocalServiceClp implements GameScoreLocalService {
                 "long", "java.lang.String", "int", "int"
             };
 
-        _methodName20 = "countTopPlayers";
+        _methodName20 = "findValues";
 
-        _methodParameterTypes20 = new String[] { "long" };
+        _methodParameterTypes20 = new String[] {
+                "java.lang.Object[][]", "java.lang.String", "int", "int"
+            };
+
+        _methodName21 = "countTopPlayers";
+
+        _methodParameterTypes21 = new String[] { "long" };
     }
 
     @Override
@@ -700,13 +708,49 @@ public class GameScoreLocalServiceClp implements GameScoreLocalService {
     }
 
     @Override
-    public int countTopPlayers(long groupId)
+    public java.util.List<org.liferay.lifebringer.model.UserValue> findValues(
+        java.lang.Object[] params, java.lang.String sql, int start, int end)
         throws com.liferay.portal.kernel.exception.SystemException {
         Object returnObj = null;
 
         try {
             returnObj = _invokableLocalService.invokeMethod(_methodName20,
-                    _methodParameterTypes20, new Object[] { groupId });
+                    _methodParameterTypes20,
+                    new Object[] {
+                        ClpSerializer.translateInput(params),
+                        
+                    ClpSerializer.translateInput(sql),
+                        
+                    start,
+                        
+                    end
+                    });
+        } catch (Throwable t) {
+            t = ClpSerializer.translateThrowable(t);
+
+            if (t instanceof com.liferay.portal.kernel.exception.SystemException) {
+                throw (com.liferay.portal.kernel.exception.SystemException) t;
+            }
+
+            if (t instanceof RuntimeException) {
+                throw (RuntimeException) t;
+            } else {
+                throw new RuntimeException(t.getClass().getName() +
+                    " is not a valid exception");
+            }
+        }
+
+        return (java.util.List<org.liferay.lifebringer.model.UserValue>) ClpSerializer.translateOutput(returnObj);
+    }
+
+    @Override
+    public int countTopPlayers(long groupId)
+        throws com.liferay.portal.kernel.exception.SystemException {
+        Object returnObj = null;
+
+        try {
+            returnObj = _invokableLocalService.invokeMethod(_methodName21,
+                    _methodParameterTypes21, new Object[] { groupId });
         } catch (Throwable t) {
             t = ClpSerializer.translateThrowable(t);
 

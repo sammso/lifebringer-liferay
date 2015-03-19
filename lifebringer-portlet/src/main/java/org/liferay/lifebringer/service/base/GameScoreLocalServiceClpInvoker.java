@@ -51,6 +51,8 @@ public class GameScoreLocalServiceClpInvoker {
     private String[] _methodParameterTypes61;
     private String _methodName62;
     private String[] _methodParameterTypes62;
+    private String _methodName63;
+    private String[] _methodParameterTypes63;
 
     public GameScoreLocalServiceClpInvoker() {
         _methodName0 = "addGameScore";
@@ -155,9 +157,15 @@ public class GameScoreLocalServiceClpInvoker {
                 "long", "java.lang.String", "int", "int"
             };
 
-        _methodName62 = "countTopPlayers";
+        _methodName62 = "findValues";
 
-        _methodParameterTypes62 = new String[] { "long" };
+        _methodParameterTypes62 = new String[] {
+                "java.lang.Object[][]", "java.lang.String", "int", "int"
+            };
+
+        _methodName63 = "countTopPlayers";
+
+        _methodParameterTypes63 = new String[] { "long" };
     }
 
     public Object invokeMethod(String name, String[] parameterTypes,
@@ -276,6 +284,14 @@ public class GameScoreLocalServiceClpInvoker {
 
         if (_methodName62.equals(name) &&
                 Arrays.deepEquals(_methodParameterTypes62, parameterTypes)) {
+            return GameScoreLocalServiceUtil.findValues((java.lang.Object[]) arguments[0],
+                (java.lang.String) arguments[1],
+                ((Integer) arguments[2]).intValue(),
+                ((Integer) arguments[3]).intValue());
+        }
+
+        if (_methodName63.equals(name) &&
+                Arrays.deepEquals(_methodParameterTypes63, parameterTypes)) {
             return GameScoreLocalServiceUtil.countTopPlayers(((Long) arguments[0]).longValue());
         }
 

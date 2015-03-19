@@ -51,6 +51,17 @@ public class GameScoreLocalServiceImpl extends GameScoreLocalServiceBaseImpl {
 		return list;
 	}
 	
+	public List<UserValue> findValues(Object[] params, String sql, int start, int end) throws SystemException {
+		List<UserValue> list = new ArrayList<UserValue>();
+		
+		for (Object[] objects : gameScoreFinder.findValues(params, sql, start, end)) {
+			list.add(new UserValueImpl((User)objects[0], ((Integer)objects[1]).intValue()));
+		}
+		
+		return list;
+	}
+	
+	
 	public int countTopPlayers(long groupId) throws SystemException {
 		return gameScoreFinder.countTopPlayers(groupId);
 	}	

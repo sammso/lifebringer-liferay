@@ -7,5 +7,7 @@
 		<portlet id="top-players-portlet"/>
 		<portlet id="most-played-portlet"/>
 		<portlet id="most-accurate-shooters-portlet"></portlet>
+		<portlet id="top-10 Portlet"></portlet>
+		<portlet id="my-scores"></portlet>
 	</category>
 </display>

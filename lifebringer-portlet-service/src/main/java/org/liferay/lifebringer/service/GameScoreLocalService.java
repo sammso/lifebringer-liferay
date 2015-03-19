@@ -241,6 +241,10 @@ public interface GameScoreLocalService extends BaseLocalService,
         long groupId, java.lang.String sql, int start, int end)
         throws com.liferay.portal.kernel.exception.SystemException;
 
+    public java.util.List<org.liferay.lifebringer.model.UserValue> findValues(
+        java.lang.Object[] params, java.lang.String sql, int start, int end)
+        throws com.liferay.portal.kernel.exception.SystemException;
+
     public int countTopPlayers(long groupId)
         throws com.liferay.portal.kernel.exception.SystemException;
 }

@@ -23,6 +23,7 @@ var loseText = 'Game over, man! Game over!';
 var pauseText = 'Paused';
 var pew;
 var ray;
+var gameOverSound;
 var raySpeed = 500;
 
 var score = 0;
@@ -95,7 +96,7 @@ var sendScoreToServer = function() {
 	    }	
    }).done(function( data ) {
 	   gameId = data;
-	   setTimeout(redirectToGameOverPage, 1000);
+	   setTimeout(redirectToGameOverPage, 4000);
    });				
 }
 
@@ -141,7 +142,7 @@ var contextRoot = "/lifebringer-portlet/";
         lzs.load.audio('pew', contextRoot + 'assets/sounds/raygun1.mp3');
         lzs.load.audio('soundtrack', contextRoot + 'assets/sounds/soundtrack.mp3');
         lzs.load.audio('zombie', contextRoot + 'assets/sounds/zombie1.mp3');
-
+        lzs.load.audio('gameover', contextRoot + 'assets/sounds/we-need-your-brains.mp3');
         // fullscreen setup
         
         lzs.scale.fullScreenScaleMode = Phaser.ScaleManager.EXACT_FIT;
@@ -235,6 +236,7 @@ function create() {
     pew = lzs.add.audio('pew', volume);
     zombieSpawn = lzs.add.audio('zombie', volume);
     soundtrack = lzs.add.audio('soundtrack');
+    gameOverSound = lzs.add.audio('gameover');
 
     soundtrack.play('', 0, volume / 3, true);
 
@@ -626,6 +628,7 @@ function showBonusText(text) {
 }
 
 function loseGame() {
+	gameOverSound.play();
     stateText.text = loseText;
     stateText.visible = true;
     zombies.destroy();

@@ -16,8 +16,14 @@
 		<meta name="description" content="">
 		<!-- 
 		 <meta name="viewport" content="width=device-width, initial-scale=1">
-		-->
-		
+			-->
+		<meta name="format-detection" content="telephone=no">
+		<meta name="HandheldFriendly" content="true" />
+		<meta name="robots" content="noindex,nofollow" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name="apple-mobile-web-app-title" content="Phaser App">
+		<meta name="viewport" content="initial-scale=1 maximum-scale=1 user-scalable=0 minimal-ui" />		
 		<script src="/lifebringer-portlet/js/jquery-2.1.3.js" type="text/javascript"></script>
 		<script src="/lifebringer-portlet/js/phaser-2.2.2.js"></script>
 

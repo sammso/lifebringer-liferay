@@ -268,6 +268,12 @@ public class GameScoreLocalServiceUtil {
         return getService().findValues(groupId, sql, start, end);
     }
 
+    public static java.util.List<org.liferay.lifebringer.model.UserValue> findValues(
+        java.lang.Object[] params, java.lang.String sql, int start, int end)
+        throws com.liferay.portal.kernel.exception.SystemException {
+        return getService().findValues(params, sql, start, end);
+    }
+
     public static int countTopPlayers(long groupId)
         throws com.liferay.portal.kernel.exception.SystemException {
         return getService().countTopPlayers(groupId);

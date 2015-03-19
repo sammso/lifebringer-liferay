@@ -2,13 +2,13 @@ package org.liferay.lifebringer.service.impl;
 
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
+import com.liferay.portal.kernel.jsonwebservice.JSONWebService;
+import com.liferay.portal.kernel.jsonwebservice.JSONWebServiceMode;
 import com.liferay.portal.model.Group;
 import com.liferay.portal.model.User;
 import com.liferay.portal.security.auth.PrincipalException;
 import com.liferay.portal.security.permission.PermissionChecker;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -41,6 +41,7 @@ public class GameScoreServiceImpl extends GameScoreServiceBaseImpl {
 	 * org.liferay.lifebringer.service.GameScoreServiceUtil} to access the game
 	 * score remote service.
 	 */
+	@JSONWebService(mode = JSONWebServiceMode.IGNORE)
 	public GameScore storeScore(Date startTime, long groupId, int score, int redZombiesKilled,
 			int greenZombiesKilled, int fired, int missed, int level) throws SystemException {
 
@@ -79,19 +80,23 @@ public class GameScoreServiceImpl extends GameScoreServiceBaseImpl {
 		} 
 	}
 	
+	@JSONWebService(mode = JSONWebServiceMode.IGNORE)
 	public List<GameScore> findGameScoreByGroupId(long groupId, int start, int end) throws SystemException {
 		return gameScorePersistence.findByGroupId(groupId, start, end);
 	}
 	
+	@JSONWebService(mode = JSONWebServiceMode.IGNORE)
 	public int countGameScoreByGroupId(long groupId) throws SystemException {
 		return gameScorePersistence.countByGroupId(groupId);
 	}
 	
+	@JSONWebService(mode = JSONWebServiceMode.IGNORE)
 	public List<GameScore> findGameScoreByUserId(long groupId, long userId, int start, int end) throws SystemException {
 		return gameScorePersistence.findByG_U(groupId, userId);
 	}
 	
+	@JSONWebService(mode = JSONWebServiceMode.IGNORE)
 	public int countGameScoreByUserId(long groupId, long userId) throws SystemException {
 		return gameScorePersistence.countByG_U(groupId, userId);
-	}		
+	}
 }

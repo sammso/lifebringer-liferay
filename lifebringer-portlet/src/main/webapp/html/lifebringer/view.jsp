@@ -5,7 +5,7 @@
 	<portlet:param name="lastGameId" value="QWEQWE" />
 </portlet:renderURL>
 
-<h1>Ray's Lifebringer</h1>
+<h3 class="aui">Ray's Lifebringer</h3>
 <%
 	if (themeDisplay.isSignedIn()) { 
 		
@@ -16,9 +16,9 @@
 			currentGameScore = GameScoreLocalServiceUtil.getGameScore(gameId);
 		
 %>
-<p><a href="<%=gameUrl %>">Start game</a></p>
+<p><a href="<%=gameUrl %>" class="btn btn-primary btn-block">Start game</a></p>
 <% if (currentGameScore!=null) { %>
-<h1>Your result</h1>
+<h3 class="aui">Your result</h3>
 <ul>
 	<li><b>Score: <%=currentGameScore.getGameScore() %></b></li>
 	<li>Zombies killed:<%=(currentGameScore.getRedZombiesKilled() + currentGameScore.getGreenZombiesKilled()) %>
@@ -37,7 +37,7 @@
 </ul>
 <% }
 %>
-<h2>Your games</h2>
+<h3 class="aui">Your games</h3>
 <liferay-ui:search-container emptyResultsMessage="No games">
 	<liferay-ui:search-container-results
 		results="<%=GameScoreServiceUtil.findGameScoreByUserId(scopeGroupId, user.getUserId(),

@@ -3,6 +3,7 @@ package org.liferay.lifebringer.service;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.jsonwebservice.JSONWebService;
+import com.liferay.portal.kernel.jsonwebservice.JSONWebServiceMode;
 import com.liferay.portal.kernel.transaction.Isolation;
 import com.liferay.portal.kernel.transaction.Transactional;
 import com.liferay.portal.security.ac.AccessControlled;
@@ -51,22 +52,27 @@ public interface GameScoreService extends BaseService, InvokableService {
         java.lang.String[] parameterTypes, java.lang.Object[] arguments)
         throws java.lang.Throwable;
 
+    @com.liferay.portal.kernel.jsonwebservice.JSONWebService(mode = JSONWebServiceMode.IGNORE)
     public org.liferay.lifebringer.model.GameScore storeScore(
         java.util.Date startTime, long groupId, int score,
         int redZombiesKilled, int greenZombiesKilled, int fired, int missed,
         int level) throws com.liferay.portal.kernel.exception.SystemException;
 
+    @com.liferay.portal.kernel.jsonwebservice.JSONWebService(mode = JSONWebServiceMode.IGNORE)
     public java.util.List<org.liferay.lifebringer.model.GameScore> findGameScoreByGroupId(
         long groupId, int start, int end)
         throws com.liferay.portal.kernel.exception.SystemException;
 
+    @com.liferay.portal.kernel.jsonwebservice.JSONWebService(mode = JSONWebServiceMode.IGNORE)
     public int countGameScoreByGroupId(long groupId)
         throws com.liferay.portal.kernel.exception.SystemException;
 
+    @com.liferay.portal.kernel.jsonwebservice.JSONWebService(mode = JSONWebServiceMode.IGNORE)
     public java.util.List<org.liferay.lifebringer.model.GameScore> findGameScoreByUserId(
         long groupId, long userId, int start, int end)
         throws com.liferay.portal.kernel.exception.SystemException;
 
+    @com.liferay.portal.kernel.jsonwebservice.JSONWebService(mode = JSONWebServiceMode.IGNORE)
     public int countGameScoreByUserId(long groupId, long userId)
         throws com.liferay.portal.kernel.exception.SystemException;
 }

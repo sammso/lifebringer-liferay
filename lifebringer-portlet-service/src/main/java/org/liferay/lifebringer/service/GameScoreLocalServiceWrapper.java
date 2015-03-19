@@ -278,6 +278,13 @@ public class GameScoreLocalServiceWrapper implements GameScoreLocalService,
     }
 
     @Override
+    public java.util.List<org.liferay.lifebringer.model.UserValue> findValues(
+        java.lang.Object[] params, java.lang.String sql, int start, int end)
+        throws com.liferay.portal.kernel.exception.SystemException {
+        return _gameScoreLocalService.findValues(params, sql, start, end);
+    }
+
+    @Override
     public int countTopPlayers(long groupId)
         throws com.liferay.portal.kernel.exception.SystemException {
         return _gameScoreLocalService.countTopPlayers(groupId);

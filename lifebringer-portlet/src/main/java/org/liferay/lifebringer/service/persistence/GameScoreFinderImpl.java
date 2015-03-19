@@ -22,6 +22,10 @@ public class GameScoreFinderImpl extends BasePersistenceImpl<GameScore> implemen
 			GameScoreFinder.class.getName() + ".findTopPlayers";
 	
 	public List<Object[]> findValues(long groupId, String sql, int start, int end) throws SystemException {
+		return findValues(new Object[] {Long.valueOf(groupId)}, sql, start, end);
+	}
+	
+	public List<Object[]> findValues(Object[] params, String sql, int start, int end) throws SystemException {
 		Session session = null;
 		
 		try {
@@ -36,8 +40,10 @@ public class GameScoreFinderImpl extends BasePersistenceImpl<GameScore> implemen
 			
 			QueryPos qPos = QueryPos.getInstance(q);
 			
-			qPos.add(groupId);
-
+			for (Object param : params ) {
+				qPos.add(param);
+			}	
+			
 			return (List<Object[]>)QueryUtil.list(
 					q, getDialect(), start, end);
 		}

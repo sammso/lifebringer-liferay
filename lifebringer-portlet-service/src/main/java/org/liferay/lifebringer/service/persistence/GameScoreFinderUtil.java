@@ -13,6 +13,12 @@ public class GameScoreFinderUtil {
         return getFinder().findValues(groupId, sql, start, end);
     }
 
+    public static java.util.List<java.lang.Object[]> findValues(
+        java.lang.Object[] params, java.lang.String sql, int start, int end)
+        throws com.liferay.portal.kernel.exception.SystemException {
+        return getFinder().findValues(params, sql, start, end);
+    }
+
     public static int countTopPlayers(long groupId)
         throws com.liferay.portal.kernel.exception.SystemException {
         return getFinder().countTopPlayers(groupId);
