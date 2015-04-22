@@ -74,7 +74,7 @@ public class GameScoreFinderImpl extends BasePersistenceImpl<GameScore> implemen
 
 			List<Integer> list = (List<Integer>)QueryUtil.list(
 					q, getDialect(), QueryUtil.ALL_POS, QueryUtil.ALL_POS);
-			return list.get(0);
+			return list.size() > 0 ? list.get(0) : 0;
 		}
 		catch (Exception e) {
 			throw processException(e);
